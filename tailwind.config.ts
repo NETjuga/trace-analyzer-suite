@@ -18,12 +18,36 @@ export default {
 			}
 		},
 		extend: {
+			fontFamily: {
+				'mono': ['JetBrains Mono', 'Share Tech Mono', 'Courier New', 'monospace'],
+				'display': ['Orbitron', 'JetBrains Mono', 'monospace'],
+			},
 			colors: {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
 				ring: 'hsl(var(--ring))',
 				background: 'hsl(var(--background))',
 				foreground: 'hsl(var(--foreground))',
+				
+				// Terminal-specific colors
+				terminal: {
+					green: 'hsl(var(--terminal-green))',
+					cyan: 'hsl(var(--terminal-cyan))',
+					amber: 'hsl(var(--terminal-amber))',
+					red: 'hsl(var(--terminal-red))',
+					purple: 'hsl(var(--terminal-purple))',
+					bg: 'hsl(var(--terminal-bg))',
+					panel: 'hsl(var(--terminal-panel))',
+					hover: 'hsl(var(--terminal-hover))',
+					border: 'hsl(var(--terminal-border))',
+				},
+				
+				glow: {
+					green: 'hsl(var(--glow-green))',
+					cyan: 'hsl(var(--glow-cyan))',
+					amber: 'hsl(var(--glow-amber))',
+				},
+				
 				primary: {
 					DEFAULT: 'hsl(var(--primary))',
 					foreground: 'hsl(var(--primary-foreground))'

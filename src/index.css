@@ -2,39 +2,61 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Terminal-style design system with cyberpunk aesthetics */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Terminal color palette */
+    --background: 220 18% 4%;
+    --foreground: 120 100% 85%;
+    
+    /* Terminal accent colors */
+    --terminal-green: 120 100% 85%;
+    --terminal-cyan: 180 100% 70%;
+    --terminal-amber: 45 100% 70%;
+    --terminal-red: 0 100% 70%;
+    --terminal-purple: 270 100% 70%;
+    
+    /* Matrix-style glow effects */
+    --glow-green: 120 100% 50%;
+    --glow-cyan: 180 100% 50%;
+    --glow-amber: 45 100% 50%;
+    
+    /* Background variations */
+    --terminal-bg: 220 18% 4%;
+    --terminal-panel: 220 15% 8%;
+    --terminal-hover: 220 12% 12%;
+    --terminal-border: 120 50% 25%;
+    
+    /* Scanlines and effects */
+    --scanline: 120 100% 85%;
+    --noise: 0 0% 15%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    /* Semantic tokens mapped to terminal theme */
+    --card: 220 15% 8%;
+    --card-foreground: 120 100% 85%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 220 12% 12%;
+    --popover-foreground: 120 100% 85%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 120 100% 85%;
+    --primary-foreground: 220 18% 4%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 180 100% 70%;
+    --secondary-foreground: 220 18% 4%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 220 12% 12%;
+    --muted-foreground: 120 50% 65%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 45 100% 70%;
+    --accent-foreground: 220 18% 4%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 100% 70%;
+    --destructive-foreground: 220 18% 4%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 120 50% 25%;
+    --input: 220 12% 12%;
+    --ring: 120 100% 50%;
 
     --radius: 0.5rem;
 
@@ -100,6 +122,130 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-mono;
+    background-image: 
+      linear-gradient(
+        0deg,
+        transparent 24%, 
+        hsla(var(--scanline) / 0.05) 25%, 
+        hsla(var(--scanline) / 0.05) 26%, 
+        transparent 27%,
+        transparent 74%, 
+        hsla(var(--scanline) / 0.05) 75%, 
+        hsla(var(--scanline) / 0.05) 76%, 
+        transparent 77%
+      );
+    background-size: 100% 4px;
+    animation: scanlines 0.1s linear infinite;
   }
+}
+
+@layer components {
+  .terminal-window {
+    @apply bg-card border border-border rounded-lg overflow-hidden;
+    box-shadow: 
+      0 0 20px hsla(var(--glow-green) / 0.3),
+      inset 0 1px 0 hsla(var(--glow-green) / 0.1);
+  }
+  
+  .terminal-header {
+    @apply bg-muted p-4 border-b border-border;
+    background: linear-gradient(90deg, 
+      hsla(var(--terminal-green) / 0.1) 0%,
+      hsla(var(--terminal-cyan) / 0.1) 100%);
+  }
+  
+  .terminal-content {
+    @apply p-6 bg-card/50 backdrop-blur-sm;
+  }
+  
+  .glow-text {
+    text-shadow: 0 0 10px currentColor;
+  }
+  
+  .matrix-bg {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .matrix-bg::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+      radial-gradient(circle at 25% 25%, hsla(var(--glow-green) / 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 75% 75%, hsla(var(--glow-cyan) / 0.1) 0%, transparent 50%);
+    pointer-events: none;
+  }
+}
+
+@layer utilities {
+  .animate-terminal-cursor {
+    animation: terminal-cursor 1s infinite;
+  }
+  
+  .animate-fade-in-up {
+    animation: fade-in-up 0.6s ease-out forwards;
+  }
+  
+  .animate-slide-in-left {
+    animation: slide-in-left 0.8s ease-out forwards;
+  }
+  
+  .animate-glow-pulse {
+    animation: glow-pulse 2s ease-in-out infinite;
+  }
+  
+  .animate-matrix-rain {
+    animation: matrix-rain 20s linear infinite;
+  }
+}
+
+@keyframes scanlines {
+  0% { background-position: 0 0; }
+  100% { background-position: 0 4px; }
+}
+
+@keyframes terminal-cursor {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-in-left {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes glow-pulse {
+  0%, 100% {
+    text-shadow: 0 0 5px currentColor, 0 0 10px currentColor;
+  }
+  50% {
+    text-shadow: 0 0 10px currentColor, 0 0 20px currentColor, 0 0 30px currentColor;
+  }
+}
+
+@keyframes matrix-rain {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100vh); }
 }
