@@ -4,6 +4,7 @@ import { SecurityMetrics } from "./SecurityMetrics";
 import { IPLocationAnalyzer } from "./IPLocationAnalyzer";
 import { BrowserAnalyzer } from "./BrowserAnalyzer";
 import { PasswordAnalyzer } from "./PasswordAnalyzer";
+import { MetadataAnalyzer } from "./MetadataAnalyzer";
 
 export const FootprintDashboard = () => {
   const [securityData, setSecurityData] = useState<{
@@ -82,6 +83,10 @@ export const FootprintDashboard = () => {
         
         <div className="animate-slide-in-left" style={{ animationDelay: '0.8s' }}>
           <PasswordAnalyzer />
+        </div>
+        
+        <div className="animate-fade-in-up" style={{ animationDelay: '1.0s' }}>
+          <MetadataAnalyzer />
         </div>
       </div>
 

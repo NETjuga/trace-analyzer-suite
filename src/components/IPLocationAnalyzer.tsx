@@ -19,23 +19,27 @@ export const IPLocationAnalyzer = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const fetchIPData = async () => {
-      try {
-        const response = await fetch('https://ipapi.co/json/');
-        const data = await response.json();
-        
-        // Simulate terminal loading effect
-        setTimeout(() => {
-          setIpData(data);
-          setLoading(false);
-        }, 1500);
-      } catch (error) {
-        console.error('Failed to fetch IP data:', error);
+    // Simulate IP data for GitHub Pages compatibility
+    const simulateIPData = () => {
+      // Generate mock but realistic data
+      const mockData: IPData = {
+        ip: "203.0.113.42",
+        city: "San Francisco",
+        country_name: "United States",
+        org: "Example ISP Corp",
+        latitude: 37.7749,
+        longitude: -122.4194,
+        timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+        currency: "USD"
+      };
+      
+      setTimeout(() => {
+        setIpData(mockData);
         setLoading(false);
-      }
+      }, 1500);
     };
 
-    fetchIPData();
+    simulateIPData();
   }, []);
 
   const getLocationRisk = () => {

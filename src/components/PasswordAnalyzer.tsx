@@ -213,8 +213,13 @@ export const PasswordAnalyzer = () => {
                     contentStyle={{
                       backgroundColor: 'hsl(var(--card))',
                       border: '1px solid hsl(var(--border))',
-                      borderRadius: '8px'
+                      borderRadius: '8px',
+                      fontFamily: 'monospace'
                     }}
+                    formatter={(value: any, name: string) => [
+                      name === 'Length' ? `${value}/20 chars` : value === 100 ? 'Present' : 'Missing',
+                      name
+                    ]}
                   />
                   <Bar 
                     dataKey="value" 
