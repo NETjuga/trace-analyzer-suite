@@ -6,57 +6,57 @@
 
 @layer base {
   :root {
-    /* Simplified color palette: #334139, #1E2D24, #C52184, #E574BC, #F9B4ED */
-    --background: 150 13% 22%;  /* #334139 */
-    --foreground: 0 0% 98%;
+    /* Terminal color palette */
+    --background: 220 18% 4%;
+    --foreground: 120 100% 85%;
     
-    /* Terminal accent colors from new palette */
-    --terminal-green: 150 13% 22%;    /* #334139 */
-    --terminal-cyan: 316 57% 70%;     /* #E574BC */
-    --terminal-amber: 330 84% 85%;    /* #F9B4ED */
-    --terminal-red: 316 73% 55%;      /* #C52184 */
-    --terminal-purple: 316 73% 55%;   /* #C52184 */
+    /* Terminal accent colors */
+    --terminal-green: 120 100% 85%;
+    --terminal-cyan: 180 100% 70%;
+    --terminal-amber: 45 100% 70%;
+    --terminal-red: 0 100% 70%;
+    --terminal-purple: 270 100% 70%;
     
-    /* Glow effects */
-    --glow-green: 150 13% 22%;
-    --glow-cyan: 316 57% 70%;
-    --glow-amber: 330 84% 85%;
+    /* Matrix-style glow effects */
+    --glow-green: 120 100% 50%;
+    --glow-cyan: 180 100% 50%;
+    --glow-amber: 45 100% 50%;
     
     /* Background variations */
-    --terminal-bg: 150 25% 18%;       /* #1E2D24 */
-    --terminal-panel: 150 20% 25%;
-    --terminal-hover: 150 20% 30%;
-    --terminal-border: 150 20% 35%;
+    --terminal-bg: 220 18% 4%;
+    --terminal-panel: 220 15% 8%;
+    --terminal-hover: 220 12% 12%;
+    --terminal-border: 120 50% 25%;
     
     /* Scanlines and effects */
-    --scanline: 316 57% 70%;
+    --scanline: 120 100% 85%;
     --noise: 0 0% 15%;
 
-    /* Semantic tokens mapped to new palette */
-    --card: 150 25% 18%;              /* #1E2D24 */
-    --card-foreground: 0 0% 98%;
+    /* Semantic tokens mapped to terminal theme */
+    --card: 220 15% 8%;
+    --card-foreground: 120 100% 85%;
 
-    --popover: 150 25% 18%;
-    --popover-foreground: 0 0% 98%;
+    --popover: 220 12% 12%;
+    --popover-foreground: 120 100% 85%;
 
-    --primary: 316 73% 55%;           /* #C52184 */
-    --primary-foreground: 0 0% 98%;
+    --primary: 120 100% 85%;
+    --primary-foreground: 220 18% 4%;
 
-    --secondary: 150 25% 18%;
-    --secondary-foreground: 0 0% 98%;
+    --secondary: 180 100% 70%;
+    --secondary-foreground: 220 18% 4%;
 
-    --muted: 150 20% 25%;
-    --muted-foreground: 0 0% 64%;
+    --muted: 220 12% 12%;
+    --muted-foreground: 120 50% 65%;
 
-    --accent: 316 73% 55%;
-    --accent-foreground: 0 0% 98%;
+    --accent: 45 100% 70%;
+    --accent-foreground: 220 18% 4%;
 
-    --destructive: 0 70% 50%;
-    --destructive-foreground: 0 0% 98%;
+    --destructive: 0 100% 70%;
+    --destructive-foreground: 220 18% 4%;
 
-    --border: 150 20% 35%;
-    --input: 150 25% 18%;
-    --ring: 316 73% 55%;
+    --border: 120 50% 25%;
+    --input: 220 12% 12%;
+    --ring: 120 100% 50%;
 
     --radius: 0.5rem;
 
